@@ -1,0 +1,78 @@
+<html><head><meta charset="utf-8">
+
+<script src="./resource/jquery.min.js"></script>
+<script src="./resource/bootstrap.min.js"></script>
+<link href="./resource/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="    background-color: #B9D2EA;    font-family: &quot;微软雅黑&quot;;">
+
+<div id="all" style=" width: 600px; height: 500px;  margin: 50px auto 50px auto;  background-color: #fff; padding: 30px 50px 0 50px;">
+<p>每人的计数以<span style="
+    color: #19984B;
+    font-weight: bold;
+">回车</span>输入完毕，一个人订了<span style="
+    color: #E59336;
+    font-weight: bold;
+">n份</span><span style="
+    color: #33B5DB;
+    font-weight: bold;
+">用空格分割</span></p>
+	<div style="    float: left;    width: 80%;">
+		<textarea id="textlist" style="   width: 90%; height: 50%;   border-radius: 2%;   resize: none;"></textarea>
+		<div>
+			<button class="btn btn-primary" id="ok" onclick="jisuan()" style=" width: 100px;  height: 47px; margin-top: 10px;">计算</button>
+		</div>
+	</div>
+
+	<div id="right" style="    width: 20%;    float: right;">
+		
+		<p>结果<span style="
+    color: #EF0E0E;
+    font-size: 8px;
+">(结果有负数请自行计算)</span></p>
+		<div id="output" style="    height: 200px;   margin-top: 15px;    color: #EC3F3F;    font-size: 16px;"></div>
+		
+	</div>
+</div>
+<script>
+function jisuan(){
+	var strinput=$("#textlist").val();
+//	alert(strinput);
+	trans(strinput);
+}
+
+function trans(s){
+	var list=s.split("\n");
+	var temp=0;
+	var avg=0;
+	var len=0;
+	var result="";
+	var x=[];
+	for(var i=0;i<list.length;i++){
+		
+		var st=list[i].split(" ");
+		var z=0;
+		for(var y=0;y<st.length;y++){
+			if(!isNaN(parseFloat(st[y]))){
+				z=z+parseFloat(st[y]);
+			}
+		}
+		if(z<=0 ){
+			temp=temp+z;
+		}
+		else if(z>0){
+			x[len]=z;
+			len=len+1;
+		}
+	}
+	avg=temp/len;
+
+	for(var a=0;a<len;a++){
+		result=result+(x[a]+avg)+"元<br/>"
+	}
+	$("#output").html(result);
+}
+</script>
+
+
+</body></html>
