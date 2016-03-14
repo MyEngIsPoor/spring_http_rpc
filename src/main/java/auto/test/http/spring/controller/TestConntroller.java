@@ -12,4 +12,10 @@ public class TestConntroller {
 		
 		return "test";
 	}
+	
+	@RequestMapping("/re")
+	public String re(){
+		return "redirect:/test";
+	}
+	
 }
