@@ -21,7 +21,7 @@ public class MainController {
 	}
 	
 	@RequestMapping({"/loginCheck"})
-	public String loginCheck(){
+	public String loginCheck(String username,String password){
 		//if success to indexPage or return message
 		if(true){
 			return "re";
@@ -29,13 +29,5 @@ public class MainController {
 		return "login_failed";
 	}
 	
-	@RequestMapping("/message")
-	@ResponseBody
-	public String getMessage(int messageCode){
-		switch (messageCode){
-		case 1:
-			return "1";
-		}
-		return "message error!";
-	}
+	
 }

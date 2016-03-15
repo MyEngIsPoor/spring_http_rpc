@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="auto.test.http.spring.dao.TestCaseDAO">
+  <resultMap id="BaseResultMap" type="auto.test.http.spring.modoule.TestCase">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="discribe" jdbcType="VARCHAR" property="discribe" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="test_type" jdbcType="CHAR" property="testType" />
+    <result column="interface_id" jdbcType="INTEGER" property="interfaceId" />
+    <result column="parameters" jdbcType="VARCHAR" property="parameters" />
+    <result column="expectation" jdbcType="VARCHAR" property="expectation" />
+    <result column="compare_type" jdbcType="CHAR" property="compareType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, discribe, creater, test_type, interface_id, parameters, expectation, compare_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test_case
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test_case
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="auto.test.http.spring.modoule.TestCase">
+    insert into test_case (id, name, discribe, 
+      creater, test_type, interface_id, 
+      parameters, expectation, compare_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{discribe,jdbcType=VARCHAR}, 
+      #{creater,jdbcType=VARCHAR}, #{testType,jdbcType=CHAR}, #{interfaceId,jdbcType=INTEGER}, 
+      #{parameters,jdbcType=VARCHAR}, #{expectation,jdbcType=VARCHAR}, #{compareType,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="auto.test.http.spring.modoule.TestCase">
+    insert into test_case
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="discribe != null">
+        discribe,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="testType != null">
+        test_type,
+      </if>
+      <if test="interfaceId != null">
+        interface_id,
+      </if>
+      <if test="parameters != null">
+        parameters,
+      </if>
+      <if test="expectation != null">
+        expectation,
+      </if>
+      <if test="compareType != null">
+        compare_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="discribe != null">
+        #{discribe,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="testType != null">
+        #{testType,jdbcType=CHAR},
+      </if>
+      <if test="interfaceId != null">
+        #{interfaceId,jdbcType=INTEGER},
+      </if>
+      <if test="parameters != null">
+        #{parameters,jdbcType=VARCHAR},
+      </if>
+      <if test="expectation != null">
+        #{expectation,jdbcType=VARCHAR},
+      </if>
+      <if test="compareType != null">
+        #{compareType,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="auto.test.http.spring.modoule.TestCase">
+    update test_case
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="discribe != null">
+        discribe = #{discribe,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="testType != null">
+        test_type = #{testType,jdbcType=CHAR},
+      </if>
+      <if test="interfaceId != null">
+        interface_id = #{interfaceId,jdbcType=INTEGER},
+      </if>
+      <if test="parameters != null">
+        parameters = #{parameters,jdbcType=VARCHAR},
+      </if>
+      <if test="expectation != null">
+        expectation = #{expectation,jdbcType=VARCHAR},
+      </if>
+      <if test="compareType != null">
+        compare_type = #{compareType,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="auto.test.http.spring.modoule.TestCase">
+    update test_case
+    set name = #{name,jdbcType=VARCHAR},
+      discribe = #{discribe,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      test_type = #{testType,jdbcType=CHAR},
+      interface_id = #{interfaceId,jdbcType=INTEGER},
+      parameters = #{parameters,jdbcType=VARCHAR},
+      expectation = #{expectation,jdbcType=VARCHAR},
+      compare_type = #{compareType,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
