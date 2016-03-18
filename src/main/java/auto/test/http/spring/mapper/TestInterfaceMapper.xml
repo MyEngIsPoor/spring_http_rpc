@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="auto.test.http.spring.dao.TestInterfaceDAO" >
+  <resultMap id="BaseResultMap" type="auto.test.http.spring.model.TestInterface" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="relative_url" property="relativeUrl" jdbcType="VARCHAR" />
+    <result column="mapping_name" property="mappingName" jdbcType="VARCHAR" />
+    <result column="creater" property="creater" jdbcType="VARCHAR" />
+    <result column="project_id" property="projectId" jdbcType="INTEGER" />
+    <result column="host" property="host" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="INTEGER" />
+    <result column="method" property="method" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, relative_url, mapping_name, creater, project_id, host, port, method
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from test_interface
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from test_interface
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="auto.test.http.spring.model.TestInterface" >
+    insert into test_interface (id, relative_url, mapping_name, 
+      creater, project_id, host, 
+      port, method)
+    values (#{id,jdbcType=INTEGER}, #{relativeUrl,jdbcType=VARCHAR}, #{mappingName,jdbcType=VARCHAR}, 
+      #{creater,jdbcType=VARCHAR}, #{projectId,jdbcType=INTEGER}, #{host,jdbcType=VARCHAR}, 
+      #{port,jdbcType=INTEGER}, #{method,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="auto.test.http.spring.model.TestInterface" >
+    insert into test_interface
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="relativeUrl != null" >
+        relative_url,
+      </if>
+      <if test="mappingName != null" >
+        mapping_name,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
+      <if test="projectId != null" >
+        project_id,
+      </if>
+      <if test="host != null" >
+        host,
+      </if>
+      <if test="port != null" >
+        port,
+      </if>
+      <if test="method != null" >
+        method,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="relativeUrl != null" >
+        #{relativeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mappingName != null" >
+        #{mappingName,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="host != null" >
+        #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null" >
+        #{port,jdbcType=INTEGER},
+      </if>
+      <if test="method != null" >
+        #{method,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="auto.test.http.spring.model.TestInterface" >
+    update test_interface
+    <set >
+      <if test="relativeUrl != null" >
+        relative_url = #{relativeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="mappingName != null" >
+        mapping_name = #{mappingName,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="projectId != null" >
+        project_id = #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="host != null" >
+        host = #{host,jdbcType=VARCHAR},
+      </if>
+      <if test="port != null" >
+        port = #{port,jdbcType=INTEGER},
+      </if>
+      <if test="method != null" >
+        method = #{method,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="auto.test.http.spring.model.TestInterface" >
+    update test_interface
+    set relative_url = #{relativeUrl,jdbcType=VARCHAR},
+      mapping_name = #{mappingName,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      project_id = #{projectId,jdbcType=INTEGER},
+      host = #{host,jdbcType=VARCHAR},
+      port = #{port,jdbcType=INTEGER},
+      method = #{method,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

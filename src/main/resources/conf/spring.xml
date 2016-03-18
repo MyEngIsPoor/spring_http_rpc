@@ -102,7 +102,8 @@
           p:prefix="/WEB-INF/"
           p:suffix=".html" />
                
-  <!-- <bean id="dataSource"  
+  <!-- spring-c3p0配置项
+  	<bean id="dataSource"  
           class="com.mchange.v2.c3p0.ComboPooledDataSource"  
           destroy-method="close">  
         <property name="driverClass">  

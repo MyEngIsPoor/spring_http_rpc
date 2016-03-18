@@ -116,7 +116,7 @@
         </dependency>
   
         <!-- 日志文件管理包 -->
-        <!-- log start 
+        <!-- log start -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -131,14 +131,14 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j.version}</version>
-        </dependency>-->
+        </dependency>
         <!-- log end -->
-        <!-- 阿里巴巴数据源包 -->
+        <!-- 阿里巴巴数据源包 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.0.2</version>
-        </dependency>
+        </dependency>-->
         <dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
