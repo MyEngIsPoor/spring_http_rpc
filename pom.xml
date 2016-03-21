@@ -144,7 +144,7 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.3.1</version>
 		</dependency>
-
+		<!-- httpclient包 -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
@@ -160,6 +160,30 @@
             <artifactId>javaee-api</artifactId>  
             <version>7.0</version>  
         </dependency> 
+        
+        <!-- velocity依赖包 -->
+        <dependency>  
+            <groupId>net.sourceforge.htmlcleaner</groupId>  
+            <artifactId>htmlcleaner</artifactId>  
+            <version>2.8</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>tomcat</groupId>  
+            <artifactId>servlet-api</artifactId>  
+            <version>5.5.23</version>  
+        </dependency>  
+  
+        <dependency>  
+            <groupId>org.apache.velocity</groupId>  
+            <artifactId>velocity</artifactId>  
+            <version>1.7</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.apache.velocity</groupId>  
+            <artifactId>velocity-tools</artifactId>  
+            <version>2.0</version>  
+        </dependency>  
+        
     </dependencies>
     <build>
     	<finalName>auto_test</finalName>

@@ -11,7 +11,7 @@ public interface TestDAO {
     int insertSelective(Test record);
 
     Test selectByPrimaryKey(Integer id);
-
+    Test selectByPrimaryKey2(Integer uid);
     int updateByPrimaryKeySelective(Test record);
 
     int updateByPrimaryKey(Test record);

@@ -4,17 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import auto.test.http.utils.MessageMapping;
+
 @Controller
 public class SystemController {
 
+	int messageCode=0;
+	
+	public void setMessageCode(int messageCode) {
+		this.messageCode = messageCode;
+	}
+	
 	@RequestMapping("/message")
 	@ResponseBody
-	public String getMessage(int messageCode){
-		switch (messageCode){
-		case 1:
-			return "1";
-		}
-		return "message error!";
+	public String getMessage(){
+		return MessageMapping.getMsgByCode(messageCode);
 	}
 	
 	public String userAdd(){

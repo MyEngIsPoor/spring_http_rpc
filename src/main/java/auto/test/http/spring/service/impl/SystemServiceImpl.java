@@ -1,15 +1,20 @@
 package auto.test.http.spring.service.impl;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
+import auto.test.http.spring.dao.UserDAO;
+import auto.test.http.spring.model.User;
 import auto.test.http.spring.service.SystemService;
 
 @Service("SystemService")
 public class SystemServiceImpl implements SystemService{
-
+	@Resource
+	private UserDAO userDAO;
 	@Override
-	public boolean loginCheck(String username, String password) {
+	public User loginCheck(String username, String password) {
 		// TODO Auto-generated method stub
-		return false;
+		return userDAO.loginCheck(username,password);
 	}
 
 	@Override

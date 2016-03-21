@@ -6,7 +6,7 @@ import auto.test.http.spring.model.TestCase;
 
 public interface CaseManagerService {
 
-public List<TestCase> listTestCase();
+	public List<TestCase> listTestCase();
 	
 	public List<TestCase> getTestCaseById(int... id);
 	
