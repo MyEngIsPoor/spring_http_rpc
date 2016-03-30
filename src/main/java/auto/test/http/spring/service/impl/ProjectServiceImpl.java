@@ -2,19 +2,28 @@ package auto.test.http.spring.service.impl;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
+import auto.test.http.spring.dao.ProjectDAO;
+import auto.test.http.spring.dao.TestInterfaceDAO;
 import auto.test.http.spring.model.Project;
 import auto.test.http.spring.model.TestInterface;
 import auto.test.http.spring.service.ProjectService;
 
 @Service("ProjectService")
 public class ProjectServiceImpl implements ProjectService {
-
+	
+	@Resource
+	private TestInterfaceDAO tiDAO;
+	@Resource
+	private ProjectDAO pjDAO;
+	
 	@Override
 	public List<Project> listProject() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return pjDAO.listProjects();
 	}
 
 	@Override

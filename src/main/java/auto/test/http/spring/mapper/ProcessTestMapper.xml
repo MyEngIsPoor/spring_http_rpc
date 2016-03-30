@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="auto.test.http.spring.dao.ProcessTestMapper" >
+  <resultMap id="BaseResultMap" type="auto.test.http.spring.model.ProcessTest" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="before_id" property="beforeId" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="VARCHAR" />
+    <result column="clear_id" property="clearId" jdbcType="VARCHAR" />
+    <result column="test_type" property="testType" jdbcType="CHAR" />
+    <result column="is_regress" property="isRegress" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, before_id, content_id, clear_id, test_type, is_regress
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from process_test
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from process_test
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="auto.test.http.spring.model.ProcessTest" >
+    insert into process_test (id, before_id, content_id, 
+      clear_id, test_type, is_regress
+      )
+    values (#{id,jdbcType=INTEGER}, #{beforeId,jdbcType=VARCHAR}, #{contentId,jdbcType=VARCHAR}, 
+      #{clearId,jdbcType=VARCHAR}, #{testType,jdbcType=CHAR}, #{isRegress,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="auto.test.http.spring.model.ProcessTest" >
+    insert into process_test
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="beforeId != null" >
+        before_id,
+      </if>
+      <if test="contentId != null" >
+        content_id,
+      </if>
+      <if test="clearId != null" >
+        clear_id,
+      </if>
+      <if test="testType != null" >
+        test_type,
+      </if>
+      <if test="isRegress != null" >
+        is_regress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="beforeId != null" >
+        #{beforeId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="clearId != null" >
+        #{clearId,jdbcType=VARCHAR},
+      </if>
+      <if test="testType != null" >
+        #{testType,jdbcType=CHAR},
+      </if>
+      <if test="isRegress != null" >
+        #{isRegress,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="auto.test.http.spring.model.ProcessTest" >
+    update process_test
+    <set >
+      <if test="beforeId != null" >
+        before_id = #{beforeId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=VARCHAR},
+      </if>
+      <if test="clearId != null" >
+        clear_id = #{clearId,jdbcType=VARCHAR},
+      </if>
+      <if test="testType != null" >
+        test_type = #{testType,jdbcType=CHAR},
+      </if>
+      <if test="isRegress != null" >
+        is_regress = #{isRegress,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="auto.test.http.spring.model.ProcessTest" >
+    update process_test
+    set before_id = #{beforeId,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=VARCHAR},
+      clear_id = #{clearId,jdbcType=VARCHAR},
+      test_type = #{testType,jdbcType=CHAR},
+      is_regress = #{isRegress,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

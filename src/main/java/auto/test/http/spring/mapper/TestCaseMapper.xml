@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="auto.test.http.spring.dao.TestCaseDAO">
+<mapper namespace="auto.test.http.spring.dao.TestCaseMapper">
   <resultMap id="BaseResultMap" type="auto.test.http.spring.model.TestCase">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -11,9 +11,11 @@
     <result column="parameters" jdbcType="VARCHAR" property="parameters" />
     <result column="expectation" jdbcType="VARCHAR" property="expectation" />
     <result column="compare_type" jdbcType="CHAR" property="compareType" />
+    <result column="is_regress" jdbcType="CHAR" property="isRegress" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, discribe, creater, test_type, interface_id, parameters, expectation, compare_type
+    id, name, discribe, creater, test_type, interface_id, parameters, expectation, compare_type, 
+    is_regress
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -28,12 +30,12 @@
   <insert id="insert" parameterType="auto.test.http.spring.model.TestCase">
     insert into test_case (id, name, discribe, 
       creater, test_type, interface_id, 
-      parameters, expectation, compare_type
-      )
+      parameters, expectation, compare_type, 
+      is_regress)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{discribe,jdbcType=VARCHAR}, 
       #{creater,jdbcType=VARCHAR}, #{testType,jdbcType=CHAR}, #{interfaceId,jdbcType=INTEGER}, 
-      #{parameters,jdbcType=VARCHAR}, #{expectation,jdbcType=VARCHAR}, #{compareType,jdbcType=CHAR}
-      )
+      #{parameters,jdbcType=VARCHAR}, #{expectation,jdbcType=VARCHAR}, #{compareType,jdbcType=CHAR}, 
+      #{isRegress,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="auto.test.http.spring.model.TestCase">
     insert into test_case
@@ -65,6 +67,9 @@
       <if test="compareType != null">
         compare_type,
       </if>
+      <if test="isRegress != null">
+        is_regress,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -93,6 +98,9 @@
       </if>
       <if test="compareType != null">
         #{compareType,jdbcType=CHAR},
+      </if>
+      <if test="isRegress != null">
+        #{isRegress,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -123,6 +131,9 @@
       <if test="compareType != null">
         compare_type = #{compareType,jdbcType=CHAR},
       </if>
+      <if test="isRegress != null">
+        is_regress = #{isRegress,jdbcType=CHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -135,7 +146,8 @@
       interface_id = #{interfaceId,jdbcType=INTEGER},
       parameters = #{parameters,jdbcType=VARCHAR},
       expectation = #{expectation,jdbcType=VARCHAR},
-      compare_type = #{compareType,jdbcType=CHAR}
+      compare_type = #{compareType,jdbcType=CHAR},
+      is_regress = #{isRegress,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

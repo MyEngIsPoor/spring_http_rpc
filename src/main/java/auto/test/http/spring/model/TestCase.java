@@ -20,6 +20,8 @@ public class TestCase {
 
     private String compareType;
 
+    private String isRegress;
+
     public Integer getId() {
         return id;
     }
@@ -90,5 +92,13 @@ public class TestCase {
 
     public void setCompareType(String compareType) {
         this.compareType = compareType == null ? null : compareType.trim();
+    }
+
+    public String getIsRegress() {
+        return isRegress;
+    }
+
+    public void setIsRegress(String isRegress) {
+        this.isRegress = isRegress == null ? null : isRegress.trim();
     }
 }

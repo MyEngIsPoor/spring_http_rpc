@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import auto.test.http.spring.model.TestCase;
 import auto.test.http.spring.service.TestService;
+import auto.test.http.utils.Auth;
 
 @Controller
+@Auth
 public class TestConntroller {
 	@Autowired
 	@Qualifier("testService")

@@ -6,6 +6,7 @@
  xmlns:tx="http://www.springframework.org/schema/tx"
  xmlns:util="http://www.springframework.org/schema/util"
  xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:mvc="http://www.springframework.org/schema/mvc"
  
  xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
@@ -16,7 +17,9 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
     http://www.springframework.org/schema/util
-    http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+    http://www.springframework.org/schema/util/spring-util-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
       
  
     <!-- 引入jdbc配置文件 -->
@@ -119,7 +122,7 @@
    <!-- 设置视图解析工具 -->  
    <bean id="viewResolver"  
        class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">  
-       <property name="suffix" value=".vm" />  
+       <property name="suffix" value=".html" />  
        <!-- 避免乱码 -->  
        <property name="contentType" value="text/html;charset=UTF-8" />  
        <property name="dateToolAttribute" value="dateTool" />  
@@ -178,5 +181,12 @@
             <value>${c3p0.numHelperThreads}</value>  
         </property>  
     </bean>  -->
-      
+      <!-- 自定义拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+        	<mvc:mapping path="/*"/>  
+            <bean class="auto.test.http.utils.Authlogin" /> 
+        </mvc:interceptor>
+ 	</mvc:interceptors>
+    
 </beans>

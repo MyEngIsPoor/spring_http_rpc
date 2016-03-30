@@ -1,5 +1,7 @@
 package auto.test.http.spring.dao;
 
+import java.util.List;
+
 import auto.test.http.spring.model.Project;
 
 public interface ProjectDAO {
@@ -14,4 +16,6 @@ public interface ProjectDAO {
     int updateByPrimaryKeySelective(Project record);
 
     int updateByPrimaryKey(Project record);
+    
+    List<Project> listProjects();
 }

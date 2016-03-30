@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<!--<script type="text/javascript" src="base.js"></script>-->
+<title>无标题文档</title>
+</head>
+<body>
+	<div>添加用例</div>
+    <form action="/cases/add">
+    <div>选择项目<select name="project_id">
+	#foreach($obj in $listProject)
+    	<option value=""></option>
+    #end
+    <option value="1" selected="selected">1</option>
+    </select></div>
+    <div>选择接口<select name="interface_id">
+    #foreach($obj in $listInterface)
+    	<option value=""></option>
+    #end
+    <option value="1" selected="selected">1</option>
+    </select></div>
+    <div id="list"></div>//crud
+     <div id="add_model">
+    	<div>relative_url:<input name="relative_url" value="/11/22"/></div> //没有请创建
+        <div>mapping_name:<input name="mapping_name" value="自动匹配"/></div>
+        <div>name:<input type="text" name="name" value="test"/></div>
+        <div>discribe:<input type="text" name="discribe" value="测试用"/></div>
+        <div>parameters:<input type="text" name="parameters" value="a=1&b=2"/></div>
+        <div>compare_type:<select name="compare_type"><option value="contains" selected="selected">contains</option></select></div>
+        <div>expectation:<input type="text" name="expectation" value="123"/></div>
+        <button type="submit">确定</button>
+    </div>
+    </form>//自动匹配
+    
+    <div id="add_project">
+    	<div>name:<input name="name" value="测试2"/></div>
+        <div>discribe:<input name="discribe" value="测试描述"/></div>
+        <button type="submit">确定</button>
+    </div>
+    
+    <div id="add_interface">
+    	<div>project_id:<input name="project_id" value="1"/></div>
+    	<div>relative_url:<input name="relative_url" value="/unread/test"/></div>
+        <div>mapping_name:<input name="mapping_name" value="test"/></div>
+        <div>discribe:<input name="discribe" value="测试接口"/></div>
+        <div>method:<select name="method"><option value="GET" selected="selected">GET</option></select></div>
+        <button type="submit">确定</button>
+    </div>
+<script>
+	
+</script>
+</body>

@@ -83,7 +83,7 @@ public class HttpBasic {
 	public static String doGetWithAuth(String username,String password,String relativeUrl,String paras) throws Exception{
 		return doGetWithAuth(null,null,username,password,relativeUrl,paras);	
 	}
-	
+	@Deprecated
 	public static String doGet(String ip,String port,String relativeUrl,String paras) throws Exception{
 //		init();
 //		 CloseableHttpClient client=HttpClients.createDefault();
@@ -101,16 +101,16 @@ public class HttpBasic {
 //		 return httpEntityToString(entity);	
 		return null;
 	}
-	
+	@Deprecated
 	public static String doGet(String relativeUrl,String paras) throws Exception{
 		return doGet(null,null,relativeUrl,paras);
 	}
-	
+	@Deprecated
 	public static String doPost(String ip,String port,String relativeUrl,String paras){
 		return null;
 		
 	}
-	
+	@Deprecated
 	public static String doPost(String relativeUrl,String paras){
 		return null;
 		
@@ -171,7 +171,7 @@ public class HttpBasic {
 		return doPostWithAuth(null, null, username, password, relativeUrl, paras);	
 	}
 	
-	
+	@Deprecated
 	public static String doPostWithAuth(String ip,String port,String username,String password,String relativeUrl,Map<String,String> paraMap) throws Exception{
 		init();
 		if(username != null && password != null){
@@ -208,15 +208,9 @@ public class HttpBasic {
 		return null;
 		
 	}
-	
+	@Deprecated
 	public static String doPostWithAuth(String username,String password,String relativeUrl,Map<String,String> paraMap) throws Exception{
 		return doPostWithAuth(null,null,username,password,relativeUrl,paraMap);		
 	}
 
-	//
-	public static void main(String[] args) throws Exception {
-
-		
-		System.out.println( doPostWithAuth ("www.baidu.com","80","jingjing_test1","123223","",""));//"value=0&pageid="+pageId+"&uid="+uid)
-	}
 }
