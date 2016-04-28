@@ -23,6 +23,20 @@
     from test_case
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="listTestCase" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from test_case
+  </select>
+  
+   <select id="listTestCaseByInterface" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select 
+    <include refid="Base_Column_List" />
+    from test_case
+    where interface_id = #{interface_id,jdbcType=INTEGER}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from test_case
     where id = #{id,jdbcType=INTEGER}

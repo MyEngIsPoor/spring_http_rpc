@@ -47,7 +47,7 @@ public class ProjectServiceImpl implements ProjectService {
 	@Override
 	public List<TestInterface> listTestInterface() {
 		// TODO Auto-generated method stub
-		return null;
+		return tiDAO.listTestInterfaces();
 	}
 
 	@Override
@@ -66,6 +66,12 @@ public class ProjectServiceImpl implements ProjectService {
 	public boolean updateTestInterface(TestInterface ti) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<TestInterface> listTestInterfaceByProject(int project_id) {
+		// TODO Auto-generated method stub
+		return tiDAO.listTestInterfacesByProjectId(project_id);
 	}
 
 }

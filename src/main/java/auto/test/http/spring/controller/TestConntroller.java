@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import auto.test.http.spring.model.TestCase;
 import auto.test.http.spring.service.TestService;
 import auto.test.http.utils.Auth;
+import auto.test.http.utils.Auth.Permission;
 
 @Controller
-@Auth
+@Auth(Permission.ADMIN)
 public class TestConntroller {
 	@Autowired
 	@Qualifier("testService")

@@ -1,5 +1,7 @@
 package auto.test.http.spring.dao;
 
+import java.util.List;
+
 import auto.test.http.spring.model.TestInterface;
 
 public interface TestInterfaceDAO {
@@ -15,4 +17,8 @@ public interface TestInterfaceDAO {
 	int updateByPrimaryKeySelective(TestInterface record);
 
 	int updateByPrimaryKey(TestInterface record);
+	
+	List<TestInterface> listTestInterfaces();
+	
+	List<TestInterface> listTestInterfacesByProjectId(Integer projectId);
 }

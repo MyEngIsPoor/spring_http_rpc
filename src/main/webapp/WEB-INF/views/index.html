@@ -1,4 +1,32 @@
-<div id="test_manager">测试管理</div>
-<div id="test_performer">开始测试</div>
-<div id="sys_manager">系统管理</div>
-<div id="your_news">任务2执行完毕，结果：失败！</div>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="/js/base.js"></script>
+<link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/base.css" rel="stylesheet">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div class="main">
+<div>
+    <div class="col-md-4">
+    	<div id="test_manager" class="y" target="./test_manager" onClick="getAction(this)">测试管理</div>
+    </div>
+    <div class="col-md-4">
+		<div id="test_performer" class="y" target="./test_performer" onClick="getAction(this)">开始测试</div>
+    </div>
+	<div class="col-md-4">
+		<div id="sys_manager" class="y" target="./sys_manager" onClick="getAction(this)">系统管理</div>
+	</div>
+</div>
+<div>
+<div id="your_news" target="./your_news">任务2执行完毕，结果：失败！</div>
+</div>
+</div>
+</body>
+</html>

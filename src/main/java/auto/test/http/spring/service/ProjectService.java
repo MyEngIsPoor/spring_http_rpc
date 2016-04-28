@@ -17,6 +17,8 @@ public interface ProjectService {
 	
 	public List<TestInterface> listTestInterface();
 	
+	public List<TestInterface> listTestInterfaceByProject(int project_id);
+	
 	public List<TestInterface> getTestInterface(int... id);
 	
 	public boolean deleteTestInterfaceById(int... id);

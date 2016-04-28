@@ -7,6 +7,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)  
 @Target({ElementType.TYPE,ElementType.METHOD})  
 public @interface Auth {  
-    String value() default "";  
-    //String name() default "";  
+	Permission value() default Permission.USER;   
+    enum Permission{
+    	ADMIN,
+    	USER,
+    	SUPER;
+    };
 } 

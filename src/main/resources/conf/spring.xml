@@ -26,7 +26,13 @@
     <context:property-placeholder location="classpath:conf/jdbc.properties"/>
     <!-- 扫描文件（自动将servicec层注入） -->
     <context:component-scan base-package="auto.test.http.spring.service"/>
-     <context:component-scan base-package="auto.test.http.spring.controller"/>
+    <context:component-scan base-package="auto.test.http.spring.controller"/>
+    <mvc:annotation-driven/> 
+    <mvc:resources mapping="/js/**"    
+         location="WEB-INF/js/"/>   
+    <mvc:resources mapping="/css/**"    
+         location="WEB-INF/css/"/> 
+    <mvc:default-servlet-handler /> 
     
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
     destroy-method="close" >
@@ -91,21 +97,40 @@
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
         p:dataSource-ref="dataSource"/>  
   
-   <!-- 避免IE在ajax请求时，返回json出现下载 
+   <!-- 避免IE在ajax请求时，返回json出现下载
    <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">    
         <property name="supportedMediaTypes">
             <list>
                 <value>text/html;charset=UTF-8</value>
             </list>
         </property>
-    </bean>-->
+    </bean> -->
+    
+    <bean  
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">  
+        <property name="messageConverters">  
+            <list>  
+                <bean  
+                    class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />  
+                <bean  
+                    class="org.springframework.http.converter.StringHttpMessageConverter">  
+                    <property name="supportedMediaTypes">  
+                        <list>  
+                            <value>text/plain; charset=UTF-8</value>  
+                        </list>  
+                    </property>  
+                </bean>  
+            </list>  
+        </property>  
+    </bean>
+    
     <!-- spring 原始页面设置 
      <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/"
           p:suffix=".html" />-->
     
-    <!-- 模板信息设置 -->  
+    <!-- 模板信息设置 -->   
    <bean id="velocityConfigurer"  
        class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">  
        <property name="resourceLoaderPath"  value="WEB-INF/views" /><!-- 設置模板防止位置-->  

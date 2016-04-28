@@ -13,4 +13,6 @@ public interface CaseManagerService {
 	public boolean deleteTestCaseById(int... id);
 	
 	public boolean updateTestCase(TestCase tc);
+	
+	public List<TestCase> listTestCase(int interface_id);
 }
